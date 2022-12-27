@@ -2,6 +2,8 @@
 
 Ansible scripts to automate API setup, largely based on [this guide](https://www.digitalocean.com/community/tutorials/how-to-use-ansible-to-automate-initial-server-setup-on-ubuntu-22-04).
 
+PocketBase specific setup largely based on [this guide](https://github.com/pocketbase/pocketbase/discussions/512).
+
 ### Gettings started 🚀
 
 The below guide assumes you are using [Digital Ocean](https://www.digitalocean.com/) but a lot of the code here should work with any cloud provider.
