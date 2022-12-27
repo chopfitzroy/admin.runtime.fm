@@ -1,0 +1,14 @@
+- name: Coffee and code API setup
+  hosts: cac_api
+  remote_user: root
+
+  pre_tasks:
+  - name: Setup gloabl variables
+    tags:
+      - always
+    include_vars:
+      file: vars/main.yml
+
+  roles:
+    - {role: pocketbase, tags: ['pocketbase']}
+    # - {role: litestream, tags: ['litestream']}

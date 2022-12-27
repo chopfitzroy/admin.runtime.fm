@@ -1,0 +1,10 @@
+# Pocketbase
+/pb_*
+/pocketbase
+
+# Docs
+*.md
+!README.md
+
+# Downloads
+*.zip
