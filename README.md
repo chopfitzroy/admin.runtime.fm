@@ -14,6 +14,10 @@ Create a new Droplet on Digital Ocean (Debian was used when creating this guide 
 
 When creating the Droplet it is recommend you also create a volume of 20GB or larger.
 
+#### Update `pocketbase.service` 🐿
+
+In this repository open `roles/pocketbase/files/pocketbase.service` and update `{{ droplet_up }}` to be the IP address of your Digital Ocean droplet.
+
 #### Edit your hosts 📝
 
 Edit your `/etc/ansible/hosts` on your local machine to include:
@@ -35,4 +39,5 @@ Why Ansible? It runs everywhere and is fairly simple to port over to other opera
 
 ### Future improvements 🔮
 
-- [ ] Handle localsetup additional to remote setup
+- [ ] Convert `{{ droplet_ip }}` to an Ansible variable and write it at build time
+- [ ] Handle local setup additional to remote setup

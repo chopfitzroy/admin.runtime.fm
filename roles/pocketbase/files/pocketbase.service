@@ -10,7 +10,7 @@ Restart        = always
 RestartSec     = 5s
 StandardOutput = append:/root/pb/errors.log
 StandardError  = append:/root/pb/errors.log
-ExecStart      = /root/pb/pocketbase serve --http="api.coffeeandcode.app:80" --https="api.coffeeandcode.app:443"
+ExecStart      = /root/pb/pocketbase serve --http="{{ droplet_ip }}:80" --https="{{ droplet_ip }}:443"
 
 [Install]
 WantedBy = multi-user.target
