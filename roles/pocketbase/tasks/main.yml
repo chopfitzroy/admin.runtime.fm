@@ -20,7 +20,7 @@
   pip:
     name: github3.py
 
-- name: Creates directory
+- name: Creates `pb` directory
   file:
     mode: 0755
     path: "{{ pocketbase_dir }}"
