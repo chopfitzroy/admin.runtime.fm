@@ -16,7 +16,7 @@ When creating the Droplet it is recommend you also create a volume of 20GB or la
 
 #### Update `pocketbase.service` 🐿
 
-In this repository open `roles/pocketbase/files/pocketbase.service` and update `{{ droplet_up }}` to be the IP address of your Digital Ocean droplet.
+In this repository open `roles/pocketbase/files/pocketbase.service` and update `{{ droplet_ip }}` to be the IP address of your Digital Ocean droplet.
 
 #### Edit your hosts 📝
 
@@ -24,7 +24,7 @@ Edit your `/etc/ansible/hosts` on your local machine to include:
 
 ```sh
 [servers]
-cac_api ansible_host=your_remote_server_ip
+cac_api ansible_host={{ droplet_ip }}
 ```
 
 #### Run the playbook 📚
