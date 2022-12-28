@@ -29,6 +29,12 @@ cac_api ansible_host={{ droplet_ip }}
 ansible-playbook main.yml
 ```
 
+#### Propagation delays 🛑
+
+During intial deployment there were delays between deploying the site and the SSL certificates being correctly registered.
+
+When deploying allowing up to 24 hours for certificates to be registered.
+
 ### Reasoning 🤔
 
 Why Ansible? It runs everywhere and is fairly simple to port over to other operating systems when required.
