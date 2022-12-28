@@ -42,3 +42,14 @@
     creates: "{{ pocketbase_dir }}/pocketbase"
     remote_src: yes
 
+- name: Copy `pocketbase.service`
+  copy:
+    src: pocketbase.service
+    mode: 0644
+    dest: /lib/systemd/system/pocketbase.service
+
+- name: Start `pocketbase.service`
+  ansible.builtin.systemd:
+    name: pocketbase.service
+    state: started
+    enabled: yes
