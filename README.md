@@ -18,6 +18,8 @@ When creating the Droplet it is recommend you also create a volume of 20GB or la
 
 In this repository open `roles/pocketbase/files/pocketbase.service` and update `{{ droplet_ip }}` to be the IP address of your Digital Ocean droplet.
 
+For more information on why we use the IP address as opposed to the domain name see [this thread](https://github.com/pocketbase/pocketbase/discussions/480).
+
 #### Edit your hosts 📝
 
 Edit your `/etc/ansible/hosts` on your local machine to include:
