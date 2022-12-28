@@ -48,8 +48,8 @@
     mode: 0644
     dest: /lib/systemd/system/pocketbase.service
 
-- name: Start `pocketbase.service`
-  ansible.builtin.systemd:
+- name: Re-start `pocketbase.service`
+  systemd:
     name: pocketbase.service
-    state: started
+    state: restarted
     enabled: yes
