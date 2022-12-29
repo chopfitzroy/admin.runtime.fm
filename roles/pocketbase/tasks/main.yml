@@ -54,12 +54,14 @@
     state: restarted
     enabled: yes
 
+# Would like to see if I can make the registered variable the path as opposed to the full output
 - name: Get `pb_data` disk ID
   find: 
     paths: /dev/disk/by-id/
     file_type: "link"
   register: disk_id
 
+# - https://docs.digitalocean.com/products/volumes/how-to/mount/
 # - https://www.garrettbland.com/posts/adding-volume-storage-to-digital-ocean-droplet/
 - name: Add `pb_data` disk to `/etc/fstab`
   lineinfile:
