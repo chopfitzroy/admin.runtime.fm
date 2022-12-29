@@ -12,7 +12,11 @@ The below guide assumes you are using [Digital Ocean](https://www.digitalocean.c
 
 Create a new Droplet on Digital Ocean (Debian was used when creating this guide but Ubuntu should work as well).
 
-When creating the Droplet it is recommend you also create a volume of 20GB or larger.
+#### Create volume 📦
+
+Once you have created your Droplet you have the option of creating a volume to attach to the droplet 20GB should be sufficient.
+
+**NOTE:** Ansible looks for the first available mounted volume, if you attach more than one volume you may need to tweak the playbook.
 
 #### Edit your hosts 📝
 

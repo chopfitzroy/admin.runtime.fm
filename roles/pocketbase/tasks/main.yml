@@ -53,3 +53,22 @@
     name: pocketbase.service
     state: restarted
     enabled: yes
+
+- name: Get `pb_data` disk ID
+  find: 
+    paths: /dev/disk/by-id/
+    file_type: "link"
+  register: disk_id
+
+# - https://www.garrettbland.com/posts/adding-volume-storage-to-digital-ocean-droplet/
+- name: Add `pb_data` disk to `/etc/fstab`
+  lineinfile:
+    path: /etc/fstab
+    line: "{{ disk_id.files[0].path }} {{ pocketbase_dir }}/pb_data ext4 defaults,nofail,discard 0 0"
+  when: disk_id.files[0] is defined
+
+- name: Mount `pb_data` disk
+  command:
+    cmd: "/usr/bin/mount -a"
+  when: disk_id.files[0] is defined
+
