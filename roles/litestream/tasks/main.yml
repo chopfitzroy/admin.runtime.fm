@@ -36,7 +36,11 @@
       dbs:
         - path: {{ pocketbase_dir }}/pb_data/data.db
           replicas:
-            - url: s3://coffeeandcode-litestream-backups.sfo3.digitaloceanspaces.com/data.db
+            - url: s3://coffeeandcode-litestream-backups.sfo3.digitaloceanspaces.com/data
+              sync-interval: 1s
+        - path: {{ pocketbase_dir }}/pb_data/logs.db
+          replicas:
+            - url: s3://coffeeandcode-litestream-backups.sfo3.digitaloceanspaces.com/logs
               sync-interval: 1s
 
 - name: Enable and re-start litestream service
