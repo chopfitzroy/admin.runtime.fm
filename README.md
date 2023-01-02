@@ -4,6 +4,8 @@ Ansible scripts to automate API setup, largely based on [this guide](https://www
 
 PocketBase specific setup largely based on [this guide](https://github.com/pocketbase/pocketbase/discussions/512).
 
+Litestream specific setup largely based on [this guide](https://litestream.io/guides/systemd/).
+
 ### Gettings started 🚀
 
 The below guide assumes you are using [Digital Ocean](https://www.digitalocean.com/) but a lot of the code here should work with any cloud provider.
@@ -40,7 +42,7 @@ Add your Digital Ocean spaces credentials to `vars/generic.yml` to configure Lit
 If you don't want to use Litestream you can bypass the setup using the following command:
 
 ```sh
-ansible-playbook main.yml --tags "asdf,node,deno"
+ansible-playbook main.yml --tags "pocketbase"
 ```
 
 #### Run the playbook 📚
