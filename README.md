@@ -18,6 +18,12 @@ Once you have created your Droplet you have the option of creating a volume to a
 
 **NOTE:** Ansible looks for the first available mounted volume, if you attach more than one volume you may need to tweak the playbook.
 
+#### Create your spaces 🌌
+
+Additionally you can also make use of Digitial Ocean spaces (or any S3 compatiable storage) for handling file uploads and database backups.
+
+We recommend two buckets one for [direct use with PocketBase](https://pocketbase.io/docs/files-handling/#storage-options) and one for use with [Litestream](https://litestream.io/).
+
 #### Edit your hosts 📝
 
 Edit your `/etc/ansible/hosts` on your local machine to include:
@@ -25,6 +31,16 @@ Edit your `/etc/ansible/hosts` on your local machine to include:
 ```sh
 [servers]
 cac_api ansible_host={{ droplet_ip }}
+```
+
+#### Add your spaces credentials 🗝
+
+Add your Digital Ocean spaces credentials to `vars/generic.yml` to configure Litestream backups.
+
+If you don't want to use Litestream you can bypass the setup using the following command:
+
+```sh
+ansible-playbook main.yml --tags "asdf,node,deno"
 ```
 
 #### Run the playbook 📚

@@ -11,4 +11,4 @@
 
   roles:
     - {role: pocketbase, tags: ['pocketbase']}
-    # - {role: litestream, tags: ['litestream']}
+    - {role: litestream, tags: ['litestream']}

@@ -1,0 +1,46 @@
+- name: Install python3
+  become: yes
+  apt:
+    name: python3
+    state: present
+
+- name: Install pip
+  become: yes
+  apt:
+    name: python3-pip
+    state: present
+
+- name: Install github3.py
+  pip:
+    name: github3.py
+
+- name: Get latest litestream release
+  community.general.github_release:
+    token: "{{ lookup('ansible.builtin.env', 'GITHUB_TOKEN') }}"
+    user: benbjohnson
+    repo: litestream
+    action: latest_release
+  register: litestream_release
+
+- name: Install litestream
+  apt:
+    deb: "https://github.com/benbjohnson/litestream/releases/download/{{ litestream_release['tag'] }}/litestream-{{ litestream_release['tag'] }}-linux-amd64.deb"
+
+- name: Write litestream config
+  blockinfile:
+    path: /etc/litestream.yml
+    block: |
+      access-key-id:     {{ litestream_bucket_access_key_id }}
+      secret-access-key: {{ litestream_bucket_secret_access_key }}
+
+      dbs:
+        - path: {{ pocketbase_dir }}/pb_data/data.db
+          replicas:
+            - url: s3://coffeeandcode-litestream-backups.sfo3.digitaloceanspaces.com/data.db
+              sync-interval: 1s
+
+- name: Enable and re-start litestream service
+  systemd:
+    name: litestream
+    state: restarted
+    enabled: yes
