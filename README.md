@@ -1,4 +1,4 @@
-# Coffee and code API setup ☕
+# Runtime FM API setup ☕
 
 Ansible scripts to automate API setup, largely based on [this guide](https://www.digitalocean.com/community/tutorials/how-to-use-ansible-to-automate-initial-server-setup-on-ubuntu-22-04).
 
