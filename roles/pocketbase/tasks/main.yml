@@ -39,7 +39,8 @@
   unarchive:
     src: "https://github.com/pocketbase/pocketbase/releases/download/{{ pocketbase_release['tag'] }}/pocketbase_{{ pocketbase_release['tag'] | regex_replace('^v','') }}_linux_amd64.zip"
     dest: "{{ pocketbase_dir }}"
-    creates: "{{ pocketbase_dir }}/pocketbase"
+    # Uncomment if you don't want to update pocketbase
+    # creates: "{{ pocketbase_dir }}/pocketbase"
     remote_src: yes
 
 - name: Copy `pocketbase.service`
